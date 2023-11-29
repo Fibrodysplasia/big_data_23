@@ -67,5 +67,6 @@ for line in sys.stdin:
                 print(f"{product}\t{complaints}")
             else:
                 pass
+    # catching all errors like this is poor practice
     except ValueError:
         pass

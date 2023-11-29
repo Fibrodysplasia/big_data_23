@@ -2,6 +2,7 @@
 
 import sys
 import re
+import errno
 
 for line in sys.stdin:
     try:
@@ -14,6 +15,9 @@ for line in sys.stdin:
             # it through. Probably something to do
             # with tokenization
             word = re.sub(r'[\[\],\']', '', word)
-            print(f'{product}, {word}: 1')
+            print(f'{product}, {word}')
     except ValueError:
         pass
+    except IOError:
+        if IOError.errno == errno.EPIPE:
+            pass
