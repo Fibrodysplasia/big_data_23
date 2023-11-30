@@ -7,7 +7,6 @@ import errno
 
 current_product = None
 # Using a defaultdict to easily limit to unique values
-products = defaultdict(set)
 word_counts = defaultdict(Counter)
 counter = 0
 
@@ -20,26 +19,34 @@ for line in sys.stdin:
         # counter is for testing with various numbers
         # you can print the counter to be sure the 
         # program isn't hanging
-        print(counter)
+        # print(counter)
         counter += 1
     except ValueError:
         pass
     except IOError:
         if IOError.errno == errno.EPIPE:
             pass
-    if counter >= 100000:
+    # I'm taking 10 million because bigger numbers takes hours
+    if counter >= 10000000:
         break
 # We have to convert the counter dict to a normal one
 result = {product: dict(count) for product, count in word_counts.items()}
 
-# For testing the output use limited values, 
+# For testing the output use limited values,
 # too many at a time looks horrible in terminal
 # Otherwise use the other to print everything
 for product, values in result.items():
-    # test
-    limited_values = dict(sorted(values.items(), key=itemgetter(1), reverse=True)[:50])
-    print(f'{product}: {limited_values}')
+    try:
+        # test taking only the top 50 words
+        limited_values = dict(sorted(values.items(), key=itemgetter(1), reverse=True)[:50])
+        print(f'{product}: {limited_values}')
 
-    # actual
-    # sorted_values = dict(sorted(values.items(), key=itemgetter(1), reverse=True)
-    # print(f'{product}: {sorted_values}')
+        # in production you might want all the values for further 
+        # insights (ML, NLP, sentiment analysis etc)
+        # sorted_values = dict(sorted(values.items(), key=itemgetter(1), reverse=True)
+        # print(f'{product}: {sorted_values}')
+    except ValueError:
+        pass
+    except IOError:
+        if IOError.errno == errno.EPIPE:
+            pass
