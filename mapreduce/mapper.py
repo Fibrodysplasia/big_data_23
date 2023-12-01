@@ -16,6 +16,7 @@ stop_words = set(stopwords.words('english'))
 # complaints, after mapping we end up with some misinterpretations
 # of the complaint text as new categories
 # so if that occurs we will place the words in uncategorized
+# These were the top categories in the dataset (over 77% of total)
 categories = [
         'debt collection',
         'mortgage',

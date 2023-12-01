@@ -14,7 +14,6 @@ for line in sys.stdin:
             # and random commas and quotes made
             # it through. Probably something to do
             # with tokenization
-            
             word = re.sub(r'[\[\],\']', '', word)
             print(f'{product}, {word}')
     except ValueError:

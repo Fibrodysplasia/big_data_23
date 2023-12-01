@@ -13,7 +13,6 @@ counter = 0
 for line in sys.stdin:
     try:
         product, word = line.strip().split(',')
-        # First product
         word_counts[product][word] += 1
 
         # counter is for testing with various numbers
