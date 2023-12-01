@@ -22,8 +22,8 @@ hadoop fs -copyFromLocal filtered.csv /path/to/input/folder
 
 # Open the run_hadoop_job.jar
 # Change line 8 with the path to your hadoop-streaming.jar
-# Change line 35 with the path to your input file on hadoop fs
-# Change line 36 with the path to your output folder on hadoop fs
+# Change line 33 with the path to your input file on hadoop fs
+# Change line 34 with the path to your output folder on hadoop fs
 # Save and exit
 
 # Run the job with the following
