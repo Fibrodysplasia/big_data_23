@@ -44,7 +44,7 @@ def process_text(text):
     text = ' '.join(text)
     # Remove anything that isn't an alphabet or space character
     text = re.sub(r'[^a-zA-Z\s]', ' ', text.lower())
-    # Remove redacted things (XX/XX/XXX and XXXX for example)
+    # Remove redacted things (XX/XX/XXXX and XXXX for example)
     text = re.sub(r'\b(?:\w*xx\w*)\b', '', text)
     # tokenize and emit a list of words
     words = word_tokenize(text)
