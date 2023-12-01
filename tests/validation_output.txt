@@ -1,0 +1,2 @@
+Uncategorized: {' wordthree': 3, ' wordtwo': 2, ' wordone': 1}
+Mortgage: {' wordfour': 4, ' wordtwo': 2, ' wordone': 1}
