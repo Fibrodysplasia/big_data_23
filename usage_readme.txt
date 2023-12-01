@@ -41,3 +41,12 @@ hadoop jar /opt/hadoop/share/hadoop/tools/lib/hadoop-streaming*.jar \
 -input '/HADOOP_DATA/input/filtered.csv' \
 -output '/HADOOP_DATA/output'
 
+# Copy the output to local (save to the same folder as visualize.py for simplicity)
+hadoop fs -copyToLocal /path/to/output/part-00000 /path/to/local/output.txt
+
+# Now to visualize it:
+pip install plotly_express==0.4.0
+
+# Assuming visualize.py and your output.txt are in the same folder:
+cat output.txt | python visualize.py
+

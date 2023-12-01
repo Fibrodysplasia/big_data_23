@@ -19,14 +19,14 @@ for line in sys.stdin:
         # counter is for testing with various numbers
         # you can print the counter to be sure the 
         # program isn't hanging
-        print(counter)
+        # print(counter)
         counter += 1
     except ValueError:
         pass
     except IOError:
         if IOError.errno == errno.EPIPE:
             pass
-    # Take 10 million for testing (this will cause a broke pipe error if ran in hadoop)
+    # Take 10 million for testing (this may cause a broke pipe error if ran in hadoop)
     if counter >= 10000000:
        break
 # We have to convert the counter dict to a normal one
