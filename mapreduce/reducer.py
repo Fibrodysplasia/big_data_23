@@ -37,8 +37,10 @@ result = {product: dict(count) for product, count in word_counts.items()}
 # Otherwise use the other to print everything
 for product, values in result.items():
     try:
-        # test taking only the top 50 words
-        limited_values = dict(sorted(values.items(), key=itemgetter(1), reverse=True)[:50])
+        # test taking only the top 20 words
+        # getting more than that was making the
+        # output visuals very busy
+        limited_values = dict(sorted(values.items(), key=itemgetter(1), reverse=True)[:20])
         print(f'{product}: {limited_values}')
 
         # in production you might want all the values for further 

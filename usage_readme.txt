@@ -50,3 +50,7 @@ pip install plotly_express==0.4.0
 # Assuming visualize.py and your output.txt are in the same folder:
 cat output.txt | python visualize.py
 
+# Or to run the entire thing through with python:
+cat filtered.csv | python mapreduce/mapper.py | python mapreduce/combiner.py | python mapreduce/reducer.py | python visualize.py
+
+See the expected output in images/visual_out*.png
